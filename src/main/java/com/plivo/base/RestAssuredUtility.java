@@ -19,7 +19,7 @@ public class RestAssuredUtility {
 		String authID = CommonUtility.getProperty("test.properties", "authId");
 		String authToken = CommonUtility.getProperty("test.properties", "authToken");
 		
-		RestAssured.baseURI = "https://api.plivo.com/v1/Account/"+authID+"/";
+		RestAssured.baseURI = CommonUtility.getProperty("test.properties", "baseURI").replaceAll("auth_id", authID);
 		
 		reqSpec =  RestAssured.given().auth().basic(authID, authToken);
 		}

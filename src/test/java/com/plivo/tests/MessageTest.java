@@ -98,6 +98,8 @@ public class MessageTest extends PageFacotory{
 		//Get cash credits from response
 		cashCredits = Float.valueOf((String)RestAssuredUtility.getNodeValue(res.asString(), "cash_credits"));
 		
+		System.out.println("cashCredits:"+cashCredits);
+		
 		//verify that account cash credit should be less than by the deducted amount
 		Assert.assertTrue(cashCredits < msgCharge, "Unexpectedly cashCredits is greater than msgCharge as cashCredits: "+cashCredits+" and msgCharge: "+msgCharge);
 	}
